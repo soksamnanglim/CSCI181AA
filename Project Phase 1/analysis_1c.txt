@@ -1,0 +1,7 @@
+Team: Recipes
+
+Members: Stephanie, Kenneth, Lucky, Shifa
+
+Project: 1C.4 - Requirements Analysis
+	Product requirements: https://docs.google.com/document/d/1rWjtZJzlVQ3ry5rL8b5_LLh0XsvHKNVswt8fIiBrfX8/edit?usp=sharing
+	Primary Author: Stephanie
