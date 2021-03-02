@@ -1,0 +1,10 @@
+Team: Recipes
+
+Members: Stephanie, Kenneth, Lucky, Shifa
+
+Project: 2A.2 - Preliminary Architecture
+	Product proposal: 
+https://docs.google.com/document/d/1Smou5gjsZH0PyI_rKU4x3Zubp0vMC5z3RA55iDbnnsA/edit?usp=sharing
+	Primary Author: Shifa
+
+Slip Days: 1 (Shifa)
