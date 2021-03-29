@@ -1,6 +1,6 @@
 /**
- * The Unit Converter assists the Inventory Manager by converting raw groceries
- * to std units (GroceryItem(s) to StandardGroceryItem(s)).
+ * The Unit Converter assists the Inventory Manager by converting GroceryItems to
+ * StandardGroceryItems. 
  */
 class UnitConverter { 
  

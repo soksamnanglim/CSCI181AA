@@ -1,35 +1,54 @@
 /**
- * The Inventory Manager updates grocery inventory contents after grocery
- * shopping and meal consumption. 
+ * Summary of interactions between all inventory-manager classes:
+ * The GroceryItem class is used to construct GroceryItems. A 
+ * GroceryItem attribute, the foodState (e.g., solid), is determined
+ * by the FoodStateManager class. The UnitConverter class uses each
+ * GroceryItem's foodState to convert GroceryItems to StandardGroceryItems
+ * (via the StandardGroceryItem class). A StandardGroceryItem attribute,
+ * the category (e.g., meat), is determined by the FoodStateManager class.
+ * The InventoryManager class enumerates or perform updates to the 
+ * user's StandardGroceryItem inventory. 
+ * 
+ * 
+ * The Inventory Manager updates grocery inventory contents. 
  */
 class InventoryManager {
     /**
-     * Adds groceries to inventory. Calls the standardizeUnits() method in the UnitConverter class
-     * to convert GroceryItems to StandardGroceryItems prior to addition. 
+     * Adds GroceryItems to inventory. 
      * 
-     * If a grocery does not already exist in the inventory, a new grocery entry will be created. 
-     * Otherwise, the existing entry will be updated for qty. 
+     * Calls the standardizeUnits() method in the UnitConverter class
+     * to convert GroceryItems to StandardGroceryItems prior to addition, 
+     * then interacts with the Mongo shell to add the StandardGroceryItems
+     * to the user's inventory.  
+     * 
+     * For every StandardGroceryItem that does not already exist in the inventory, 
+     * a new entry will be created. Otherwise, the existing entry will be updated 
+     * for qty. 
      * 
      * 
-     * @param {GroceryItem[]} groceryItems - Array of purchased groceries.  
+     * @param {GroceryItem[]} groceryItems - Array of GroceryItems to be added.  
      */
     addToInventory(groceryItems){
         
     }
 
     /**
-     * Updates inventory by deducting consumed groceries. Consumed groceries will undergo unit
-     * standardization prior to deduction. 
+     * Subtracts GroceryItems from inventory. 
      * 
-     * Grocery entries will be updated for qty. If the qty to be deducted matches the inventory
-     * qty, the grocery entry will be deleted. 
+     * Calls the standardizeUnits() method in the UnitConverter class to convert 
+     * GroceryItems to StandardGroceryItems prior to deduction, then interacts with
+     * the Mongo shell to subtract the StandardGroceryItems from the user's inventory. 
      * 
-     * If a grocery does not exist or the deduction qty exceeds the existing grocery qty, 
-     * an error will be thrown. 
+     * StandardGroceryItem entries will be updated for qty. If the qty to be deducted
+     * matches the inventory qty, the StandardGroceryItem entry will be deleted. 
      * 
-     * @param {GroceryItem[]} groceryItems - Array of consumed groceries.
-     * @throws 
-     * @throws 
+     * If a StandardGroceryItem does not exist or the deduction qty exceeds the
+     * inventory qty, errors will be thrown. 
+     * 
+     * @param {GroceryItem[]} groceryItems - Array of GroceryItems to be subtracted.
+     * @throws {Error} The StandardGroceryItem does not exist. 
+     * @throws {Error} The StandardGroceryItem's deduction qty exceeds the inventory
+     * qty. 
      */
     reduceInventory(groceryItems){
 
@@ -38,34 +57,10 @@ class InventoryManager {
     /**
      * Lists the contents of the inventory. 
      * 
-     * @param {StandardGroceryItem[]} standardGroceryItems 
+     * Enumerates all attributes of each 
+     * StandardGroceryItem (name, quantity, foodState, and category).  
+     * 
+     * @param {StandardGroceryItem[]} standardGroceryItems - Array of StandardGroceryItems.
      */
     listInventory(standardGroceryItems)
 }
-
-
-
-// review all of Kampe's questions, new updates. 
-
-// QUESTIONS: 
-// do I need to make a grocery class? 
-    // according to our architecture diagram, my components will take .json files where 
-    // each object is an ingredient. Do I need to convert the file contents in arrays to use? 
-
-
-// two different types of groceries? 
-    // Raw groceries will have name, qty and unit. 
-    // Std groceries will have name and qty? what about category?
-    // for a new grocery, how do we determine what category it belongs in in addToInventory?
-
-// does jsdoc need to talk about function calls?
-
-// "adequate"? How to interact with Mongo shell? I understand it's an implementation issue, 
-// but will other ppl be able to write the code without my explanation?
-
-// error cases? e.g., deducting groceries beyond existing quantities? deducting nonexistent groceries?
-
-// how to denote static conversion array?
-
-/////////
-// comment out all my code?
