@@ -12,7 +12,7 @@ function displayRecipes(recipes) {
 function displaySelected(recipeID) {
     /*
         display information for user's selected recipe
-        @param recipeID: recipe ID of user's selected recipe
+        @param recipeID: recipe ID of user's selected recipe found from displayRecipes()
     */
 }
 

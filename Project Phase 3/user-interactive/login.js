@@ -5,6 +5,7 @@ class login {
     /*
         show login screen
         save user's email/username/password
+        if user logs in correctly, show home screen of app
         @output userEmail: string of user's email
         @output userName: string of user's name
         @output userPassword: string of user's password
