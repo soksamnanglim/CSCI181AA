@@ -1,14 +1,18 @@
 // This module helps the user log in to the app
 
 class login {
-    login() {
+    login(email, name, password) {
     /*
-        show login screen
+        initially show login screen
         save user's email/username/password
         if user logs in correctly, show home screen of app
-        @output userEmail: string of user's email
-        @output userName: string of user's name
-        @output userPassword: string of user's password
+        - check if email, name, and password match the saved versions in database
+        - if everything is correct, display home screen
+        - a previous tutorial I used for login with React Native: https://aboutreact.com/react-native-login-and-signup/
+        
+        @param email: string of user's email
+        @param name: string of user's name
+        @param password: string of user's password
 
         NOTE: login screen is shown if a user signs up and then logs out
     */
