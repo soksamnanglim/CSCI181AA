@@ -26,6 +26,12 @@ class receipt {
             - for example: change "targe eggs" to "eggs" or "target eggs"
             updated ingredients will be saved as a new list
 
+            if input variable is empty, InventoryManager recognized all of the items on the receipt
+            this is to avoid asking for user modification for the same ingredients repeatedly 
+            no user verification/modification needs to happen and the inventory will be updated
+            otherwise, the list will all unrecognized items, which will be shown to user
+            user will make any modifications
+
             @param data: a list of user's receipt input with correct name/quantity/units
             @output correctData: an updated list of user verified ingredients
         */
