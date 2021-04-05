@@ -6,6 +6,7 @@ class receipt {
             ask the user to upload a receipt
             save the receipt
             use the receipt to call the OCR component to process it
+
             various tutorials for uploading images in react native:
             - https://heartbeat.fritz.ai/how-to-upload-images-in-a-react-native-app-4cca03ded855
             - https://tech-blog.maddyzone.com/reactnative/how-to-upload-image-in-react-native-app
@@ -27,10 +28,12 @@ class receipt {
             updated ingredients will be saved as a new list
 
             if input variable is empty, InventoryManager recognized all of the items on the receipt
-            this is to avoid asking for user modification for the same ingredients repeatedly 
+            - this is to avoid repeatedly asking for user modification for the same ingredients 
             no user verification/modification needs to happen and the inventory will be updated
             otherwise, the list will all unrecognized items, which will be shown to user
             user will make any modifications
+            updated list will be sent back to InventoryManager
+            user's inventory will be updated
 
             @param data: a list of user's receipt input with correct name/quantity/units
             @output correctData: an updated list of user verified ingredients

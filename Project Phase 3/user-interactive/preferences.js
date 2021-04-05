@@ -4,6 +4,11 @@ This module will use the dietary restrictions, preferences, and current ingredie
 */
 
 class preferences {
+    constructor() {
+        // keeps track of how many times userDietary() has been called
+        this.dietary = 0;
+    }
+
     userPreferences(choosePreferences = true) {
         /*
             ask the user which ingredients they prefer to use for the recipe
@@ -17,10 +22,15 @@ class preferences {
 
     userDietary(chooseDietary = true) {
         /*
-            ask the user their dietary restrictions 
-            only asked once during set up of account
+            ask the user for their dietary restrictions 
+            only asked once during set up of account (sets this.dietary == 1)
             store dietary restrictions in a list 
             list will be compiled with other inputs in createPreferencesObject()
+            
+            when this function is called:
+            - check this.dietary 
+            - if this.dietary == 0: increment, ask user for dietary restrictions
+            - if this.dietary > 0: dietary restrictions have already been set
 
             @param chooseDietary: bool variable indicating whether user has clicked "set dietary restrictions" button
             @output dietary: list of user's dietary restrictions
