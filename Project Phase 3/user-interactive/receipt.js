@@ -1,4 +1,4 @@
-// This module handles all user interacts regarding receipts
+// This module handles all user interactions regarding receipts
 
 class receipt {
     uploadReceipt(upload = true) {

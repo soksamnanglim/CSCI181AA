@@ -1,4 +1,4 @@
-// This module helps the user log in to the app
+// This module allows the user to log in to the app
 
 class login {
     login(email, name, password) {

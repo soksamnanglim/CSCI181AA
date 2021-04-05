@@ -1,4 +1,4 @@
-// This module displays the user's top recipes
+// This module displays recipes that match with the user's criteria
 
 function displayRecipes(recipes) {
     /*

@@ -1,5 +1,5 @@
 // This module verifies the list of ingredients used by the user in the recipe
-// These ingredients will be deducted
+// These ingredients will be deducted from the user's inventory
 
 class verifyDeducted {
     verifyIngredients(recipeIngredients) {

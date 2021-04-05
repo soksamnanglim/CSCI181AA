@@ -1,5 +1,7 @@
-// This module''s responsbility is to create the preferences data object
-// It will ask the user for their dietary restrictions and ingredient preferences
+/* This module''s responsbility is to create the preferences data object
+It will ask the user for their dietary restrictions and ingredient preferences
+This module will use the dietary restrictions, preferences, and current ingredients to create a data object to be passed to the spoonacular api
+*/
 
 class preferences {
     userPreferences(choosePreferences = true) {
