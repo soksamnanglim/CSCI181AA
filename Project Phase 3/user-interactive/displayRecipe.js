@@ -9,7 +9,7 @@ class displayRecipe {
             - the external website contains pictures, ingredients
     
             @param recipes: list of 3-5 recipes that match with user's criteria
-            @output recipeID: ID of user's selected recipe
+            @output recipeID: string containing ID of user's selected recipe
         */
     }
     
@@ -19,7 +19,7 @@ class displayRecipe {
             once the user selects a recipe, use the recipe ID to query the spoonacular api 
             spoonacular api returns more details for that recipe (recipe instructions, exact amounts)
     
-            @param recipeID: recipe ID of user's selected recipe found from displayRecipes()
+            @param recipeID: string of recipe ID of user's selected recipe found from displayRecipes()
         */
     }
 }
