@@ -1,5 +1,8 @@
 // This module is the main class of the component. It requests information from the Spoonacular API
-
+import {preferenceObject} from preferenceObject;
+import {query} from query;
+import {recipeList} from recipeList;
+import {recipeListItem} from recipeListItem;
 /**
  * This is the main class that will generate results for the application and interact between the user interactive interface and the spoonacular api.
  * It will use the parser and the query class to request information from the spoonacular api.
@@ -26,15 +29,19 @@ class recipeGenerator {
    * The main function. This function will interpret which request to make and what parse function to call based on what the user interactive interface has requested.
    * 
    * request -> parsing -> response
+   * 
+   * @param None
+   * @return {object} recipe Information or recipe List
    */
+
   generate() {
     // if request type is a recipe list request
-    //   create a preference object and parse user preferences
+    //   create a preference object class and parse user preferences
 
-    // Make the proper request to Spoonacular and store the jsonfile as some sort of variable
+    // Make the proper request to Spoonacular and store the jsonfile as a variable
 
     // if the request type is a recipe list request
-    //  parse the recipesList into an User interactive interface facing object
+    //  parse the recipesList into an User interactive interface facing object 
     // else if the request type is a recipe information request
     //  parse the spoonacular recipe information jsonfile into an user interactive interface facing object.
 
@@ -48,8 +55,7 @@ class recipeGenerator {
    */
   request() {
     // Using the query class
-    // if request type is 1 then call get recipes complex with the preferenceObject 
-    // else call get recipe information with the recipeID as the parameter.
+    // call search with 
   }
 
 

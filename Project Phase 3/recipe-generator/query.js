@@ -9,6 +9,7 @@ class query {
    * @throws {error} if the data is functionally incomplete or id number is not valid.
    * 
    * 
+   * documentation/tutorials: https://medium.com/rakuten-rapidapi/api-tutorial-spoonacular-api-for-food-and-recipes-bfc1ccb24a9f
    */
   search(data, requestType) {
     // if requestType is 1

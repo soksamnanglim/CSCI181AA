@@ -1,4 +1,5 @@
 // This module handles the conversion from Spoonacular jsonfile to a list of recipe objects.
+import { recipeListItem } from recipeListItem;
 
 class recipeList extends recipeListItem {
   /**
