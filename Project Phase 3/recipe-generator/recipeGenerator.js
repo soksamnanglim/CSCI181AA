@@ -19,7 +19,6 @@ class recipeGenerator {
     this.recipeID = recipeID;
     this.requestType = requestType;
     this.recipes = new recipeList();
-    this.parser = new parser();
     this.query = new query();
   }
 
@@ -28,9 +27,10 @@ class recipeGenerator {
    * 
    * request -> parsing -> response
    */
-  main() {
+  generate() {
     // if request type is a recipe list request
-    //   parse user preferences
+    //   create a preference object and parse user preferences
+
     // Make the proper request to Spoonacular and store the jsonfile as some sort of variable
 
     // if the request type is a recipe list request
