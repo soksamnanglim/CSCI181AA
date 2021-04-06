@@ -1,3 +1,5 @@
+// This module handles the conversion from Spoonacular jsonfile to a list of recipe objects.
+
 class recipeList extends recipeListItem {
   /**
    * Creates an array containing the recipeListItem
@@ -8,7 +10,7 @@ class recipeList extends recipeListItem {
 
   /**
    * Adds all the recipeListItems to the recipes array.
-   * @params spoonList {jsonfile} The spoonacular API jsonfile containing a list of recipes.
+   * @params {jsonfile} spoonList  The spoonacular API jsonfile containing a list of recipes.
    * @returns {null} Nothing is returned.
    */
   populateRecipes(spoonList) {
@@ -16,10 +18,10 @@ class recipeList extends recipeListItem {
 
   /**
    * Parses the recipes in jsonfile through iteration. Helper function for populateRecipes. 
-   * @params spoonList {jsonfile} The spoonacular API jsonfile containing a list of recipes
+   * @params {jsonfile} spoonList The spoonacular API jsonfile containing a list of recipes
    * index {number} which recipe to parse
    * @returns {null} Nothing is returned.
-   */ 
+   */
   getRecipeItem(spoonList, index) {
   }
 

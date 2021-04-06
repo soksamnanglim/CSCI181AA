@@ -1,9 +1,14 @@
+// This module contains the methods to parse data objects from the user interactve interface
+
+/** This module is trivial if parsing is handled in the user interactive interface. However, in either case, parsing is required from user input to data object. Will discuss with Shifa to see who should handle parsing. */
+
 /**
  * This class contains the methods that parse the input data.
+ * 
  * This class will utilize methods from the request class to change the data of the the request.
  */
 class parser {
-  constructor() {   
+  constructor() {
     this.data = new requestObj();
   }
 

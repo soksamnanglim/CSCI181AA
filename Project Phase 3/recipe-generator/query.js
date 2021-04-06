@@ -1,19 +1,20 @@
+// This module makes calls to the Spoonacular API
 class query {
   /**
    * 
-   * @param request {request} The request data object. Stores whether it is a list request or recipe information request alongside the relevant data.
-   * @returns spoonacularData {jsonfile} The jsonfle containing the information about the recipe or a lsit of recipes.
+   * @param {object} data The data object to give the spoonacular API call. Either a preference object or a recipeid.
+   * @param {number} requestType The type of request
+   * @returns {jsonfile} spoonacularData The jsonfle containing the information about the recipe or a lsit of recipes.
    * @throws {error} if the requestType is not 1 or 2
    * @throws {error} if the data is functionally incomplete or id number is not valid.
    * 
-   * The function below is not going to be exactly how its implemented but somoething like it.
+   * 
    */
-  search(request) {
-    if (request.requestType == 1) {
-      return this.searchList(request.data)
-    } else if (request.requestType == 2) {
-      return this.searchRecipe(request.data);
-    }
+  search(data, requestType) {
+    // if requestType is 1
+    // call the get recipes complex api call.
+    // otherwise if requestType is 2
+    // call the get recipe information api call.
   }
 
   /**
@@ -21,10 +22,14 @@ class query {
    * @param {preferenceObject} data The user's preferences
    * @returns spoonacularData {jsonfile} The jsonfle containing the list of recipes.
    * @throws {error} if the data is functionally incomplete.
+   * 
    */
   searchList(data) {
+    // calls spoonacular search recipes complex api function 
+    // with required and optional parameters in preferenceObject
+    // return jsonfile
   }
-  
+
   /**
    * 
    * @param {recipeId} data The id number of the Spoonacular recipe
@@ -32,6 +37,8 @@ class query {
    * @throws {error} if the id number is not valid.
    */
   searchRecipe(data) {
-
+    // calls spoonacular get recipe information api function
+    // using recipeId 
+    // return jsonfile
   }
 }
