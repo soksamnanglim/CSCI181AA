@@ -20,6 +20,8 @@ class verifyDeducted {
                 - store changes
                 - update ingredients in verifiedIngredients
 
+            call reduceInventory() in the inventory-manager component
+
             @param recipeIngredients: list of ingredients used in recipe
             @output verifiedIngredients: verified list of ingredients
         */
