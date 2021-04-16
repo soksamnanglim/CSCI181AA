@@ -3,10 +3,11 @@
 class displayRecipe {
     displayRecipes(recipes) {
         /*
-            use the output from the spoonacular api to display the list of recipes 
+            query spoonacular api 
+            store result from spoonacular api
+            parse information from spoonacular 
+            display the list of 3-5 top recipes that match with the user's criteria
             ask the user for their top choice from the list 
-            if a user clicks on a recipe, they are taken to an outside website
-            - the external website contains pictures, ingredients
     
             @param recipes: list of 3-5 recipes that match with user's criteria
             @output recipeID: string containing ID of user's selected recipe

@@ -35,7 +35,7 @@ class receipt {
             updated list will be sent back to InventoryManager
             user's inventory will be updated
 
-            @param data: a list of user's receipt input with correct name/quantity/units
+            @param data: a list of user's receipt input with name/quantity/units
             @output correctData: an updated list of user verified ingredients
         */
     }
