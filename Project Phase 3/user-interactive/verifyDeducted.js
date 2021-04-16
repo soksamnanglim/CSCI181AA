@@ -11,12 +11,12 @@ class verifyDeducted {
             create verifiedIngredients (return variable), which is equal to recipeIngredients
 
             user will then be able to update quantities of any items
-            if user makes any changes:
+            if user makes any changes to quantities:
                 - store changes 
                 - update quantities of ingredients in verifiedIngredients
 
             user will also be able to add/remove ingredients
-            if user makes any changes:
+            if user makes any changes to ingredients:
                 - store changes
                 - update ingredients in verifiedIngredients
 

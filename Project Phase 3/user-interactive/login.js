@@ -7,7 +7,8 @@ class login {
         ask the user for ONE of (email, username) and password
         save user's email or username/password
         if user logs in correctly, show home screen of app
-        - check if email or name, and password match the saved versions in database
+        - check if email or name, and password match the saved versions in key value storage 
+        - relevant documentation for key value storage: https://reactnative.dev/docs/asyncstorage
         - if everything is correct, display home screen
         - a previous tutorial I used for login with React Native: https://aboutreact.com/react-native-login-and-signup/
         
