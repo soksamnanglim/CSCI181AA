@@ -9,6 +9,16 @@ import {recipeListItem} from recipeListItem;
  * 
  */
 class recipeGenerator {
+  usrprefs;
+  recipeId;
+  recipes; // a list of recipeListItem objects
+  recipeInfo; // a data object storing the recipe information.
+  query;
+  /**
+   * variables storing the json files
+   */
+  listjson;
+  recipejson;
 
   /**
    * Create a new recipeGenerator
@@ -17,45 +27,69 @@ class recipeGenerator {
    * Depending on the request, one out of the two parameters above will have a null value;
    * @param {*} requestType: The type of request the user is making. 1 is search for recipes request (list). 2 is get recipe data request (information).
    */
-  constructor(userPreferences, recipeID, requestType) {
+  constructor(userPreferences, recipeID) {
     this.usrprefs = userPreferences;
     this.recipeID = recipeID;
-    this.requestType = requestType;
     this.recipes = new recipeList();
     this.query = new query();
   }
 
   /**
-   * The main function. This function will interpret which request to make and what parse function to call based on what the user interactive interface has requested.
+   * This function will request recipes
    * 
    * request -> parsing -> response
    * 
    * @param None
-   * @return {object} recipe Information or recipe List
+   * @return {object} recipe Information
+   * @throws {error} if requestRecipes throws an error
+   * @throws {error} if an error occured during parsing of user preferences
    */
 
-  generate() {
-    // if request type is a recipe list request
-    //   create a preference object class and parse user preferences
-
-    // Make the proper request to Spoonacular and store the jsonfile as a variable
-
-    // if the request type is a recipe list request
-    //  parse the recipesList into an User interactive interface facing object 
-    // else if the request type is a recipe information request
-    //  parse the spoonacular recipe information jsonfile into an user interactive interface facing object.
-
-    // return the requested data object (which will go to the user interactive interface since this class is being called there).
+  generateRecipes() {
+    // the request type is a recipe list request
+    // create a preference object class and parse user preferences
+    // call requestRecipes and store the jsonfile as a variable
+    // parse the recipesList into an User interactive interface facing object 
+    // return the parsed object.
   }
 
   /**
-   * This method will make a call to the spoonacular api based on what the user wants.
-   * @parameters {object} preferenceObject or numID
-   * @returns {jsonfile} spoonList
+   * This function will request a recipes information
+   * 
+   * request -> parsing -> response
+   * 
+   * @param None
+   * @return {object} recipe Information 
+   * @throws {error} if requestRecipeInfo throws an error
    */
-  request() {
+  generateRecipeInfo() {
+     // The request type is a recipe information request
+    // call requestRecipeInnfo and store the jsonfile as variable
+    //  parse the spoonacular recipe information jsonfile into an user interactive interface facing object.
+    // return the parsed object
+  }
+
+  /**
+   * This method will make a call to the spoonacular api to get a list of recipes
+   * @parameters data {object} preferenceObject
+   * @returns {jsonfile} spoonList
+   * @throws {error} if the spoonList is empty 
+   * @throws {error} if spoonacular throws an error
+   */
+  requestRecipes(data) {
     // Using the query class
-    // call search with 
+    // call searchRecipes
+  }
+
+  /**
+   * This method will make a call to the spoonacular api to get the recipe information.
+   * @parameters recipeId {number} the identification number for the recipe requested in the Spoonacular database
+   * @returns {jsonfile} spoonRecipe
+   * @throws {error} if spoonacular throws an error
+   * @throws {error} if recipeId does not exist (may end up being handled by the same error case above)
+   */
+  requestRecipeInfo(recipeId){
+    //using query class call getRecipe
   }
 
 
