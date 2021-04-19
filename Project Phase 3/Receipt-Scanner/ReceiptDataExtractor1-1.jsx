@@ -52,12 +52,13 @@ make a client call to the API using the method process_document(built on veryfi)
 on the client variable with the receipt URI and the categories as paremeter, 
 we'll then assign the output to the variable initialReceipt */
 
-// using the receipt and the categories list, process the receipt and assign it 
-//to receipt jsonFile 
-client.process_document(receiptURI, categories)
-
-// asign it to the variable initialReceipt 
+// using the receipt and the categories list, process the receipt 
+//and assign it the variable initialReceipt 
 initialReceipt = client.process_document(receiptURI, categories) 
+
+
+
+
 
 
 createReceiptItemList(JSON initialReceipt); {}

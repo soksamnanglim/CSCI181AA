@@ -5,6 +5,7 @@ UI component will directly call the methods pickFromCamera and pickFromGallery.
 I'll got rid of the trivial methods getReceiptURI and getImageType 
 and instead assigned the receipt URI to a public variable direct
 from the pick routine results.
+I have also attempted to clarify error handling
 
 
 This class is accessed bythe UI to guide the process of picking a 
@@ -67,6 +68,7 @@ class receiptFileCollector {}
 
 
     // else throw an alert message on the console log
+    // which also halts proceedings
 
     Alert.alert("permission is needed to access the gallery") 
 
@@ -99,7 +101,7 @@ class receiptFileCollector {}
     receiptURI = uploadProperties.getReceiptURI()
 
 
-    // else throw an alert message on the console log
+    // else throw an alert message on the console log and will prevent any proceedings
 
     Alert.alert("permission is needed to access the camera") 
 
