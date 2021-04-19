@@ -1,10 +1,16 @@
 // This module helps the user sign in for the first time to the app
 
+/*
+Revisions:
+- We are no longer using a database. All information will be stored in key value storage.
+*/
+
 class signUp {
     signup(email, password, confirmPassword, name) {
     /*
         initially show sign up screen
-        save user's email/username/password in database, along with user ID
+        save user's email/username/password and userID in key value storage 
+        - documentation for key value storage: https://reactnative.dev/docs/asyncstorage
         if password equals confirmPassword, navigate to home screen of app
         - a previous tutorial I used for login with React Native: https://aboutreact.com/react-native-login-and-signup/
 

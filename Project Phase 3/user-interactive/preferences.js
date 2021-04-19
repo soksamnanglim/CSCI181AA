@@ -1,6 +1,16 @@
-/* This module''s responsbility is to create the preferences data object
+/* 
+This module's responsbility is to create the preferences data object
 It will ask the user for their dietary restrictions and ingredient preferences
 This module will use the dietary restrictions, preferences, and current ingredients to create a data object to be passed to the spoonacular api
+*/
+
+/*
+Revisions:
+- My design for the creation of the preferences data object was based on my limited understanding of the Spoonacular API. After working with Lucky, I changed my createPreferencesObject() to return an array of a format that would make it easier for Lucky's component to parse the object.
+
+- I also did not know that there was no "current inventory" parameter for the Spoonacular Get Recipes query. Thus, I removed that parameter from my design.
+
+- In userDietary(), the user will be entering strings. These strings will be processed to make sure they are of an appropriate format for the Spoonacular API.
 */
 
 class preferences {
@@ -12,6 +22,8 @@ class preferences {
     userPreferences(choosePreferences = true) {
         /*
             ask the user which ingredients they prefer to use for the recipe
+            user will be shown all ingredients currently in their inventory 
+            user selects a few preferred ingredients
             store ingredients in a list
             list will be compiled with other inputs in createPreferencesObject()
 
@@ -24,6 +36,7 @@ class preferences {
         /*
             ask the user for their dietary restrictions 
             only asked once during set up of account (sets this.dietary == 1)
+            user will enter in strings representing their restrictions
             store dietary restrictions in a list 
             list will be compiled with other inputs in createPreferencesObject()
             
@@ -37,20 +50,16 @@ class preferences {
         */
     }
     
-    createPreferencesObject(preferences, dietary, inventory) {
+    createPreferencesObject(preferences, dietary) {
         /*
             create the preferences data object
             - this object will be of the following format: 
-            - [["coconut", "chicken"], ["pork"], ["chicken", "cheese", "milk"]]
-            - the first subarray contains user preferences
-            - the second subarray contains dietary restrictions
-            - the third subarray contains all ingredients in inventory
+            [["ingredients to include"], ["ingredients to exclude"], ["intolerances"], ["diets"]]
             create a query call to spoonacular api 
             input to query call will be the preferences object
 
             @param preferences: user's preferences as a list
             @param dietary: user's dietary restrictions as a list
-            @param inventory: current ingredients in user's inventory as a list
             @output preferences: create a query call to spoonacular and pass the preferences object
         */
     }
