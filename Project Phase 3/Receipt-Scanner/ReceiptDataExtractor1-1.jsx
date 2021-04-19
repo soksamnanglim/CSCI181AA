@@ -17,15 +17,11 @@ by our different component - the inventory manager
 */
 
 // import the veryfi package
+// https://www.veryfi.com/
 import veryfi 
 
 class ReceiptDataExtractor {}
 
-// register and obtain the verify API keys, they'll be used to make the API call
-/* String client_id =  */
-/* String client_secret =  */
-/* String username = */
-/* String api_key =  */
 
 //hold the receipt URI from filecollector in a variable
 String theReceiptURI = receiptFilecollector.reciptURI 
@@ -39,6 +35,9 @@ String array[] categories = ["food", "alcohol", "beverages"]
 // instantiante a JSON receipt file 
 JSON initialReceipt;
 
+// instantiate receiptItemList to hold all the receipt items from the data extracted
+//from receipt
+receiptItem array[] receiptItemList;
 
 // empty constructor for now
 constructor ()
@@ -61,11 +60,24 @@ client.process_document(receiptURI, categories)
 initialReceipt = client.process_document(receiptURI, categories) 
 
 
-createreceiptData(); {}
+createReceiptItemList(JSON initialReceipt); {}
 /* 
-returns receiptData variable which holds the Json file
+param: extracted receipt data in a Json file
+return: None
+
+Iterate through the json - initialReceipt and access the needed attributes 
+and check for any null case, we'll set an empty string instead for a null attribute
+
+for each json object in the file, create a receiptItem and call the set
+methods to update the properties
+add each of the new receiptItems to the receiptItemList
+
 */
 
-// return the variable receiptData 
+
+getReceiptItemList();  {
+
+    return receiptItemList
+}
 
 

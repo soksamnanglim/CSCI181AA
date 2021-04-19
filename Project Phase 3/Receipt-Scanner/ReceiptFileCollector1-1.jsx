@@ -20,13 +20,14 @@ upon an authorisation
 */
 
 // run install for the image picker package
-/*expo install expo-image-picker */
+// https://docs.expo.io/versions/latest/sdk/imagepicker/
+expo install expo-image-picker;
 
 // import image picker as imagePicker
-/* import * as ImagePicker from 'expo-image-picker'; */
+import * as ImagePicker from 'expo-image-picker'; 
 
 // import permissions
-/* import * as Permissions from 'expo-permissions'; */
+import * as Permissions from 'expo-permissions'; 
 
 
 class receiptFileCollector {}
