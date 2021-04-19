@@ -1,13 +1,22 @@
 /* 
-This class links to the UI to guide the process of picking up
-a receipt file by scanning or by choosing from the existing 
+Revisions: 
+We agreed to get rid of the optionListenerfromUI variable so the 
+UI component will directly call the methods pickFromCamera and pickFromGallery.
+I'll got rid of the trivial methods getReceiptURI and getImageType 
+and instead assigned the receipt URI to a public variable direct
+from the pick routine results.
+
+
+This class is accessed bythe UI to guide the process of picking a 
+receipt file by lauching the camera to take a photo
+or by choosing from the existing photos in the gallery 
 gallery, 
 For each picker method, we'll first request permission to access
- the camera or gallery from the user and proceed 
- upon an authorisation
+the camera or gallery from the user and proceed 
+upon an authorisation
 
- The class ReceiptDataExtractor access this call to use 
- the receipt URI
+ The receiptURI from this class is accessed by ReceiptDataExtractor for use as a parameter
+ in the veryfi API.
 */
 
 // run install for the image picker package
@@ -20,56 +29,53 @@ For each picker method, we'll first request permission to access
 /* import * as Permissions from 'expo-permissions'; */
 
 
-
 class receiptFileCollector {}
- /*  context: user intent to input a receipt file, 
- with constructors for Gallery case and Camera case
-    */
+   // set a variable to hold collected receipt file URI
+  // and the image type
+   Public String receiptURI; 
 
-   // instantiate variable to hold user choice from the UI component
-  /* String optionListenerFromUI */
+   // empty constrcutor for now
+   constructor() 
 
-   // set a variable to hold collected receipt file data/attributes
-   /* public Object receiptFileData */
+   
 
-   pickFromGallery (optionListenerFromUI); {}
-    /* param: String optionListenerFromUI 
-    return: receiptDatafile: this log will have the selected file info/properties
-    including the file URI
+   pickFromGallery (); {}
+    /* param: None
+    return: None
 
-    if the optionListernerFromUI is String gallery, we'll run an async method that 
+    we'll run an async method that 
     requests permission from user for gallery accesss
-    if permission is granted, it launches the image library and set the
+    if permission is granted, it launches the image library and set's the
     necessary image requirements(mediaType, aspectRatio e.t.c), then we'll assign
-    the result to the public variable receiptFileData
+    the result 
 
     else if permission is not granted, flag an alert message
     */
     //PSEUDO
-
-    // if the optionListenerFromUI is "gallery" 
-
-    // get permission from user using the package Permissions and 
+    // request permission from user using the package Permissions and 
     // store in a variable
-    /* granted = await Permissions.askAsync(Permissions.CAMERA_ROLL) */
+    granted = await Permissions.askAsync(Permissions.CAMERA_ROLL) 
 
     // if permission is granted, launch the image library 
-    // and assign the call to receiptFile Dta
-    /* receiptFileData = await ImagePicker.launchImageLibraryAsync() */
+    // and assign the call to uploadProperties
+    
+    uploadProperties = await ImagePicker.launchImageLibraryAsync() 
+
+    // set receiptURi
+    receiptURI = uploadProperties.getReceiptURI()
+
 
     // else throw an alert message on the console log
 
-    /* Alert.alert("permission is needed to access the gallery") */
+    Alert.alert("permission is needed to access the gallery") 
 
 
-    pickFromCamera(optionListenerFromUI); {}
+    pickFromCamera(); {}
 
-    /* param: String optionListenerFromUI
-    return : Object datalog: this log will have the captured file info/properties
-    including the file URI. 
+    /* None:
+    return None 
 
-
-    if the optionListernerFromUI is String camera, we'll run an async method that 
+    we'll run an async method that 
     requests permission from user for camera accesss
     if permission is granted, it launches the camera, and sets the
     necessary image requirements(mediaType, aspectRatio e.t.c), then we'll assign 
@@ -79,38 +85,25 @@ class receiptFileCollector {}
     */
 
     //PSEUDO 
-    // if the optionListenerFromUI is "camera" 
 
     // get permission from user using the package Permissions and 
     // store in a variable
-    /* granted = await Permissions.askAsync(Permissions.CAMERA) */
+    granted = await Permissions.askAsync(Permissions.CAMERA)
 
     // if permission is granted, launch the image library 
-    // and assign the call to receiptFile Dta
-    /* receiptFileData = await ImagePicker.launchCameraAsync() */
+    // and assign the call to uploadProperties
+    uploadProperties = await ImagePicker.launchCameraAsync()
+
+     // set receiptURi
+    receiptURI = uploadProperties.getReceiptURI()
+
 
     // else throw an alert message on the console log
 
-    /* Alert.alert("permission is needed to access the camera") */
+    Alert.alert("permission is needed to access the camera") 
 
-
-    getReceiptURI(); {}
-    /* param: None
-    return: String URI
-    This method will access the receiptURI from the 
-    Object receiptFIleData. 
-    */
-
-    /* return  receiptFileData.URI */
-
-
-    getImagetype(); {}
-    /* param: None
-    return: String Imagetype
-    This method will access the imagetype property from 
-    the Object receiptFileData */
-
-    /* return receiptFIleData.URI */
+    
+    
 
 
 
