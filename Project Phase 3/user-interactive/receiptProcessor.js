@@ -42,7 +42,7 @@ class receipt {
             - for example: change "targe eggs" to "eggs" or "target eggs"
             updated ingredients will be saved as a new list
 
-            if data.length == 0
+            if data.length == 0:
             - InventoryManager recognized all of the items on the receipt
             - this is to avoid repeatedly asking for user modification for the same ingredients 
             - no user verification/modification needs to happen 
@@ -50,9 +50,8 @@ class receipt {
             otherwise, the list will contain unrecognized items
             show list to user
             user will make any modifications to ingredients or quantity
-            updated list will be returned to InventoryManager
 
-            // TO DO: add something about calling addToInventory in inventory-manager component
+            call addToInventory() in inventory-manager component
 
             @param data: a list of user's receipt input with name/quantity/units
             @output correctData: an updated list of user verified ingredients

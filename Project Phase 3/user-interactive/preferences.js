@@ -13,6 +13,8 @@ class preferences {
     userPreferences(choosePreferences = true) {
         /*
             ask the user which ingredients they prefer to use for the recipe
+            user will be shown all ingredients currently in their inventory 
+            user selects a few preferred ingredients
             store ingredients in a list
             list will be compiled with other inputs in createPreferencesObject()
 
@@ -25,6 +27,7 @@ class preferences {
         /*
             ask the user for their dietary restrictions 
             only asked once during set up of account (sets this.dietary == 1)
+            user will enter in strings representing their restrictions
             store dietary restrictions in a list 
             list will be compiled with other inputs in createPreferencesObject()
             

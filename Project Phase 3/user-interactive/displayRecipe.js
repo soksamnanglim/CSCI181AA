@@ -5,11 +5,12 @@ class displayRecipe {
         /*
             query spoonacular api 
             obtain result from spoonacular api
-            parse all information from spoonacular 
+            parse all information from spoonacular api
             display the list of 3-5 top recipes 
             - all recipes will match with the user's criteria
 
-            ask the user for their top choice from the list and find that recipe's ID
+            ask the user for their top choice from the list
+            find that recipe's ID from the information from spoonacular api 
             call displaySelected()
     
             @param recipes: list of 3-5 recipes that match with user's criteria
