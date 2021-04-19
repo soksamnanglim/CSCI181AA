@@ -1,5 +1,12 @@
 // This module handles all user interactions regarding receipts
 
+/* 
+Revisions: 
+- In a discussion with Kenneth, he mentioned that it would be easier to create separate buttons for "upload receipt from camera" and "upload receipt from gallery". These are now two separate functions.
+
+- For verifyReceipt(), a concern was that users will not have the chance to check for errors in the case of automatic matching. We want to limit how much work the user has to do. Thus, in the case of automatic matching, we will assume everything is correct and not display the list to the users. 
+*/
+
 class receipt {
     uploadReceiptCamera() {
         /*
@@ -47,11 +54,13 @@ class receipt {
             - this is to avoid repeatedly asking for user modification for the same ingredients 
             - no user verification/modification needs to happen 
 
-            otherwise, the list will contain unrecognized items
-            show list to user
-            user will make any modifications to ingredients or quantity
+            else:
+            - the list will contain unrecognized items
+            - show list to user
+            - user will make any modifications to ingredients or quantity
 
             call addToInventory() in inventory-manager component
+            addToInventory() will call verifyReceipt() again if there are still unrecognized ingredients
 
             @param data: a list of user's receipt input with name/quantity/units
             @output correctData: an updated list of user verified ingredients

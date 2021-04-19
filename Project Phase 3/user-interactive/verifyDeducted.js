@@ -1,12 +1,18 @@
 // This module verifies the list of ingredients used by the user in the recipe
 // These ingredients will be deducted from the user's inventory
 
+/*
+Revisions: 
+- No major revisions. Added more detail to account for a comment from Lucky's review of my design.
+*/
+
 class verifyDeducted {
     verifyIngredients(recipeIngredients) {
         /*
             ask user to verify ingredients used in recipe
             user will be shown a list of ingredients and their quantities in the recipe
             - this information will be provided by spoonacular api
+            - it will be of the form [[ingredient, quantity], [ingredient, quantity]]
 
             create verifiedIngredients (return variable), which is equal to recipeIngredients
 

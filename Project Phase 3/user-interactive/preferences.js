@@ -4,6 +4,15 @@ It will ask the user for their dietary restrictions and ingredient preferences
 This module will use the dietary restrictions, preferences, and current ingredients to create a data object to be passed to the spoonacular api
 */
 
+/*
+Revisions:
+- My design for the creation of the preferences data object was based on my limited understanding of the Spoonacular API. After working with Lucky, I changed my createPreferencesObject() to return an array of a format that would make it easier for Lucky's component to parse the object.
+
+- I also did not know that there was no "current inventory" parameter for the Spoonacular Get Recipes query. Thus, I removed that parameter from my design.
+
+- In userDietary(), the user will be entering strings. These strings will be processed to make sure they are of an appropriate format for the Spoonacular API.
+*/
+
 class preferences {
     constructor() {
         // keeps track of how many times userDietary() has been called

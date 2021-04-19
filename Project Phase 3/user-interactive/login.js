@@ -1,5 +1,12 @@
 // This module allows the user to log in to the app
 
+/*
+Revisions:
+- We are no longer using a database. All information will be stored in key value storage.
+
+- The user only needs to supply either a email or a username. Both are not necessary.
+*/
+
 class login {
     login(emailName, password) {
     /*

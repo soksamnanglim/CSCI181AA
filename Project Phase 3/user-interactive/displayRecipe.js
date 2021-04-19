@@ -1,5 +1,11 @@
 // This module displays recipes that match with the user's criteria
 
+/*
+Revisions:
+- Previously, the user would be taken to an external website if they clicked on a recipe from the 3-5 recipes displayed from displayRecipes(). Since the spoonacular api does not provide a external website, users will now not be able to click on any recipes. They have to select a recipe before displaySelected() is invoked.
+
+*/
+
 class displayRecipe {
     displayRecipes(recipes) {
         /*
@@ -10,7 +16,7 @@ class displayRecipe {
             - all recipes will match with the user's criteria
 
             ask the user for their top choice from the list
-            find that recipe's ID from the information from spoonacular api 
+            extract the recipe's ID from the information from spoonacular api 
             call displaySelected()
     
             @param recipes: list of 3-5 recipes that match with user's criteria

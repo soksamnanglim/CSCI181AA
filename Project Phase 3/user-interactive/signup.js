@@ -1,5 +1,10 @@
 // This module helps the user sign in for the first time to the app
 
+/*
+Revisions:
+- We are no longer using a database. All information will be stored in key value storage.
+*/
+
 class signUp {
     signup(email, password, confirmPassword, name) {
     /*
