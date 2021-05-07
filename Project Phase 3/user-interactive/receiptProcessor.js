@@ -1,69 +1,45 @@
-// This module handles all user interactions regarding receipts
+// This module handles all receipt processing
 
-/* 
-Revisions: 
-- In a discussion with Kenneth, he mentioned that it would be easier to create separate buttons for "upload receipt from camera" and "upload receipt from gallery". These are now two separate functions.
-
-- For verifyReceipt(), a concern was that users will not have the chance to check for errors in the case of automatic matching. We want to limit how much work the user has to do. Thus, in the case of automatic matching, we will assume everything is correct and not display the list to the users. 
-*/
-
-class receipt {
-    uploadReceiptCamera() {
+class ReceiptProcessor {
+    verifyReceipt = (data) => {
         /*
-            ask the user to use the camera and take a picture of the receipt
-            save the receipt
-            use the receipt to call the OCR component to process it
-
-            various tutorials for uploading images in react native:
-            - https://heartbeat.fritz.ai/how-to-upload-images-in-a-react-native-app-4cca03ded855
-            - https://tech-blog.maddyzone.com/reactnative/how-to-upload-image-in-react-native-app
-
-            documentation: https://www.npmjs.com/package/react-native-photo-upload
-
-            @output receiptFilePath: string variable for receipt's file path
+            call addToInventory in Stephanie's component with data
+            @param data: a list of user verified receipt input with name/quantity/units
         */
     }
 
-    uploadReceiptGallery() {
+    translateItem = (item) => {
         /*
-            ask the user to upload their receipt from their phone gallery
-            save the receipt
-            use the receipt to call the OCR component to process it
-
-            various tutorials for uploading images in react native:
-            - https://heartbeat.fritz.ai/how-to-upload-images-in-a-react-native-app-4cca03ded855
-            - https://tech-blog.maddyzone.com/reactnative/how-to-upload-image-in-react-native-app
-
-            documentation: https://www.npmjs.com/package/react-native-photo-upload
-
-            @output receiptFilePath: string variable for receipt's file path
+            Stephanie's component will call this function for every ingredient
+            call updateInventory(item[0], item[1], item[2], item[3])
+            @param item: a list representing one ingredient, list contains name, quantity, unit, and category
         */
     }
-    
-    verifyReceipt(data) {
+
+    translateItemHelper = (changedName, changedQuantity, unit, category) => {
         /*
-            ask the user to verify receipt ingredients from OCR
-            input will look like ["targe eggs", "safew milk"] 
-            the user will see these ingredients on the screen
-            - will be able to modify the ingredients
-            - for example: change "targe eggs" to "eggs" or "target eggs"
-            updated ingredients will be saved as a new list
+            created translatedIngredient, an ingredient object with the new name and quantity
+            call verifyReceipt(translatedIngredient)
+            return translatedIngredient
 
-            if data.length == 0:
-            - InventoryManager recognized all of the items on the receipt
-            - this is to avoid repeatedly asking for user modification for the same ingredients 
-            - no user verification/modification needs to happen 
+            @param changedName: updated name of ingredient from user
+            @param changedQuantity: updated quantity of ingredient from user
+            @param unit: ingredient's unit
+            @param category: ingredient's category
+            @output translatedIngredient: user verified ingredient
+        */
+    }
 
-            else:
-            - the list will contain unrecognized items
-            - show list to user
-            - user will make any modifications to ingredients or quantity
-
-            call addToInventory() in inventory-manager component
-            addToInventory() will call verifyReceipt() again if there are still unrecognized ingredients
-
-            @param data: a list of user's receipt input with name/quantity/units
-            @output correctData: an updated list of user verified ingredients
+    updateInventory = (name, quantity, unit, category) => {
+        /*
+            display name, quantity, unit and category of ingredient to user
+            ask user to change name and quantity if necessary
+            ask user to select a unit and category from a dropdown
+            once user presses done button, call translateItemHelper(changedName, changedQuantity, unit, category)
+            @param name: original name of ingredient
+            @param quantity: original quantity of ingredient
+            @param unit: ingredient's unit
+            @param category: ingredient's category
         */
     }
 }
