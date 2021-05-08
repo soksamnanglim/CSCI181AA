@@ -1,124 +1,118 @@
-// This module is the main class of the component. It requests information from the Spoonacular API
-import {preferenceObject} from preferenceObject;
-import {query} from query;
-import {recipeList} from recipeList;
-import {recipeListItem} from recipeListItem;
+/**
+ * This module is the main class of the recipe-generator component. It requests information from the Spoonacular API
+ * 
+ * PreferenceObject is a class used to parse and store information from the user interactive interfaces preferences array. The preferences array is passed to the RecipeGenerator as a parameter in the constructor.
+ * 
+ * RecipeList is an array of RecipeListItem. It stores information from a recipe list query.
+ * 
+ * UiRecipe is a data object storing information about a requested recipe. It stores an array of ingredients, and their corresponding image, amounts, and units.
+ * 
+ */
+const axios = require("axios");
+const PreferenceObject = require('./PreferenceObject.js');
+const RecipeListItem = require('./RecipeListItem.js');
+const UiRecipe = require('./UiRecipe.js');
+
 /**
  * This is the main class that will generate results for the application and interact between the user interactive interface and the spoonacular api.
  * It will use the parser and the query class to request information from the spoonacular api.
  * 
  */
-class recipeGenerator {
-  usrprefs;
-  recipeId;
-  recipes; // a list of recipeListItem objects
-  recipeInfo; // a data object storing the recipe information.
-  query;
-  /**
-   * variables storing the json files
-   */
-  listjson;
-  recipejson;
-
+class RecipeGenerator {
   /**
    * Create a new recipeGenerator
    * @param {object} userPreferences: A javascript object storing the data of the user preferences.
-   * @param {number} recipeID: The spoonacular ID for a recipe's information.
-   * Depending on the request, one out of the two parameters above will have a null value;
    * @param {*} requestType: The type of request the user is making. 1 is search for recipes request (list). 2 is get recipe data request (information).
    */
-  constructor(userPreferences, recipeID) {
+  constructor(userPreferences) {
     this.usrprefs = userPreferences;
-    this.recipeID = recipeID;
-    this.recipes = new recipeList();
-    this.query = new query();
+    this.preferences = new PreferenceObject(userPreferences);
+    this.diet = this.preferences.diet;
+    this.intolerances = this.preferences.intolerances;
+    this.excludeIngredients = this.preferences.excludeIngredients;
+    this.includeIngredients = this.preferences.includeIngredients;
+    this.recipeID;
   }
 
   /**
-   * This function will request recipes
-   * 
-   * request -> parsing -> response
-   * 
-   * @param None
-   * @return {object} recipe Information
-   * @throws {error} if requestRecipes throws an error
-   * @throws {error} if an error occured during parsing of user preferences
+   * Starts the call to the API. (Search Recipes Complex) 
    */
-
-  generateRecipes() {
-    // the request type is a recipe list request
-    // create a preference object class and parse user preferences
-    // call requestRecipes and store the jsonfile as a variable
-    // parse the recipesList into an User interactive interface facing object 
-    // return the parsed object.
+  async initialize() {
+    // wait for api call request
+    this.responseList = await axios.request();
   }
 
   /**
-   * This function will request a recipes information
+   * Completes the promise from the initialize method and returns the jsonfile object literal
    * 
-   * request -> parsing -> response
-   * 
-   * @param None
-   * @return {object} recipe Information 
-   * @throws {error} if requestRecipeInfo throws an error
+   * @returns spoonacular API recipes list
    */
-  generateRecipeInfo() {
-     // The request type is a recipe information request
-    // call requestRecipeInnfo and store the jsonfile as variable
-    //  parse the spoonacular recipe information jsonfile into an user interactive interface facing object.
-    // return the parsed object
+  getRecipesList() {
+    return this.responseList.data;
   }
 
   /**
-   * This method will make a call to the spoonacular api to get a list of recipes
-   * @parameters data {object} preferenceObject
-   * @returns {jsonfile} spoonList
-   * @throws {error} if the spoonList is empty 
-   * @throws {error} if spoonacular throws an error
+   * Completes the promise from the initialize method and returns the jsonfile object literal
+   * 
+   * @returns results array from spoonaccular API recipes list
    */
-  requestRecipes(data) {
-    // Using the query class
-    // call searchRecipes
+  getResults() {
+    return this.responseList.data.results;
   }
 
   /**
-   * This method will make a call to the spoonacular api to get the recipe information.
-   * @parameters recipeId {number} the identification number for the recipe requested in the Spoonacular database
-   * @returns {jsonfile} spoonRecipe
-   * @throws {error} if spoonacular throws an error
-   * @throws {error} if recipeId does not exist (may end up being handled by the same error case above)
+  * Adds all the recipeListItems to the recipes array.
+  * @params None
+  * @returns {RecipeListItem[]} Nothing is returned.
+  */
+  populateRecipes() {
+    // store results from the jsonfile
+    // initialize an empty array
+    // iterate through results array 
+    // create new RecipeListItem object with results element
+    // add object to array
+
+    // return array
+  }
+
+  /**
+   * The user interactive interactive calls this method with the parameter of the requested recipe id. This method updates the recipeID property. 
+   * 
+   * @param {number} recipeId | The identification number of the recipe the user wants to request. 
    */
-  requestRecipeInfo(recipeId){
-    //using query class call getRecipe
+  setRecipeId(recipeId) {
+    this.recipeID = recipeId;
   }
 
 
   /**
-   * This method will parse the spoonacular api data into a data object that can be interpreted by the user interactive interface.
-   * @parameters {jsonfile} spoonList
-   * @returns {object} uiRecipeList
-   * 
+   * Starts the call to the second API call (Get Recipe Information)
    */
-  parseList(spoonList) {
-    // using the recipeList class
-    // iterate through the spoonacular recipe list jsonfile
-    //  add the recipe to the recipeList as a recipeListItem (parsing involved)
-    // 
-    // return the recipeList 
+  async initialize2() {
+    this.responseRecipe = axios.request();
+  }
+
+
+  /**
+   * This method gets the jsonfile of the Get Recipe Information API call by completing the promise.
+   * 
+   * @returns Jsonfile containing the information of the user requested recipe (Get Recipe Information)
+   */
+  getRecipeContent() {
+    return this.responseRecipe.data;
   }
 
   /**
-   * This method will parse the spoonacular api data into a data object that can be interpreted by the user interactive interface.
-   * @parameters {jsonfile} spoonRecipe
-   * @returns {object} uiRecipe
+   * This method parses the jsonfile from Get Recipe Information and returns a UiRecipe information object containing the relevant data from the jsonfile
    * 
+   * @returns {UiRecipe} A data bject containing the relevant data from the jsonfile.
    */
-  parseRecipe() {
-    // create a data object uiRecipe
-    // iterate through the elements in the spoonacular recipe information jsonfile
-    // parse and add the relevant information to the data object uiRecipe
+  getUiRecipe() {
+    let recipeInfo = this.getRecipeContent();
+    var uiRecipe = new UiRecipe(recipeInfo);
 
-    // return the uiRecipe
+    return uiRecipe;
   }
-
 }
+
+module.exports = RecipeGenerator;
