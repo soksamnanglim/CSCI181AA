@@ -14,11 +14,6 @@
  */
 
 class PreferenceObject {
-  // values for intolerances and diets
-  // the possible values given by the User Interactive Interface component. Hard-coded options so no testing needed.
-  possDiets = ["pescetarian", "vegan", "paleo", "vegetarian"];
-  allergies = ["dairy", "egg", "gluten", "peanut", "sesame", "seafood", "shellfish", "soy", "sulfite", "tree nut", "wheat"];
-
   /**
  * 
  * @param {object} uiPreferences : a  preferences data object from shifa
@@ -35,8 +30,6 @@ class PreferenceObject {
     this.includeIngredients; // preferences data object at index 0
     this.excludeIngredients; // special dietary restrictions (ex: no pork, pork should be listed here)
     this.intolerances; // allergies (shifa needs to add this to the preferences object)
-    this.errorBool = false;
-    this.errorMessage;
     this.parse();
   }
 
