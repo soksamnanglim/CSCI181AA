@@ -40,7 +40,7 @@ class PreferenceObject {
     * 
     * @param None
     * @returns None
-    * 
+    * @returns {error} if any of the set methods does not execute correctly.
     */
   parse() {
     try {
